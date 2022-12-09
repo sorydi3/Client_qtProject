@@ -26,7 +26,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QLabel response;
+    QLabel response_label;
     QWidgetInterface widgetreader;
     QVBoxLayout layout;
     QList<QPushButton*> buttons;

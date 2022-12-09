@@ -13,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(&widgetreader,SIGNAL(enviaDatoRecibido(QString&)),this,SLOT(response(QString&)));
     widgetreader.getSignals();
 
+    response_label.setParent(ui->centralwidget);
+    response_label.setGeometry(QRect(400,80,100,50));
+
 }
 
 MainWindow::~MainWindow()
@@ -44,18 +47,21 @@ void MainWindow::generateButtons()
 
 void MainWindow::buttonSlot()
 {
-  QString senderName = this->sender()->objectName();
+    QString senderName = this->sender()->objectName();
+    response_label.setText("");
     qDebug() << "the name of the sender is::> " << senderName;
     if(senderName=="AT+RAND" || senderName=="AT+TRIANGULAR" || senderName=="AT+SINE" || senderName=="AT+SQUARE")
         widgetreader.setSignal(senderName.split("+")[1]);
 
 
-    if(senderName.contains("Start")){
+    if(senderName.contains("start")){
+        widgetreader.start();
 
     }
 
-    if(senderName.contains("Stop")){
+    if(senderName.contains("stop")){
 
+        widgetreader.stop();
     }
 
     if(senderName.contains("current")){
@@ -86,5 +92,6 @@ void MainWindow::buttonSlot()
 void MainWindow::response(QString &strResponse)
 {
     qDebug() << "response sent "<< strResponse;
+    response_label.setText(strResponse);
 }
 
