@@ -67,26 +67,6 @@ void MainWindow::buttonSlot()
     if(senderName.contains("current")){
         widgetreader.currentSignal();
     }
-
-
-
-    /*
-    if(senderName.contains("AT+RAND")){
-        widgetreader.setSignal()
-    }
-
-    if(senderName.contains("AT+TRIANGULAR")){
-
-    }
-
-    if(senderName.contains("AT+SINE")){
-
-    }
-
-    if(senderName.contains("AT+SQUARE")){
-
-    }
-    */
 }
 
 void MainWindow::response(QString &strResponse)
