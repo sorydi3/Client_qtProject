@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QLabel>
+#include "graph.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -30,6 +31,7 @@ private:
     QWidgetInterface widgetreader;
     QVBoxLayout layout;
     QList<QPushButton*> buttons;
+    Graph _graph;
 
 };
 #endif // MAINWINDOW_H

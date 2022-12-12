@@ -20,7 +20,7 @@ void QWidgetInterface::readData()
 
     // Create a QByteArray to store the read data
 
-     qDebug() << "data is available!!!!";
+    // qDebug() << "data is available!!!!";
      /**
     while(port.bytesAvailable()){
         QByteArray data;

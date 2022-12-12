@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     connect(ui->init,SIGNAL(clicked()),this,SLOT(generateButtons()));
     connect(ui->current,SIGNAL(clicked()),this,SLOT(buttonSlot()));
     connect(ui->start,SIGNAL(clicked()),this,SLOT(buttonSlot()));
@@ -42,7 +43,9 @@ void MainWindow::generateSignalsButtons()
 
 void MainWindow::generateButtons()
 {
+    qDebug("heyyy");
     generateSignalsButtons();
+    connect(&widgetreader,SIGNAL(enviaDatoRecibido(QString&)),&_graph,SLOT(agregarDato(QString&)));
 }
 
 void MainWindow::buttonSlot()
@@ -71,7 +74,8 @@ void MainWindow::buttonSlot()
 
 void MainWindow::response(QString &strResponse)
 {
-    qDebug() << "response sent "<< strResponse;
+
     response_label.setText(strResponse);
+
 }
 

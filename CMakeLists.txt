@@ -12,7 +12,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets SerialPort opengl)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets SerialPort OpenGLWidgets)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -22,6 +22,8 @@ set(PROJECT_SOURCES
         reader.h
         qwidgetinterface.h
         qwidgetinterface.cpp
+        graph.cpp
+        graph.h
         mainwindow.ui
 )
 
@@ -48,7 +50,7 @@ else()
     endif()
 endif()
 
-target_link_libraries(Client PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::SerialPort Qt${QT_VERSION_MAJOR}::OpenGL)
+target_link_libraries(Client PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::SerialPort Qt${QT_VERSION_MAJOR}::OpenGLWidgets)
 
 
 set_target_properties(Client PROPERTIES

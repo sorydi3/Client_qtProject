@@ -14,13 +14,23 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <widget class="Graph" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>90</y>
+      <width>631</width>
+      <height>371</height>
+     </rect>
+    </property>
+   </widget>
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>520</y>
       <width>771</width>
-      <height>20</height>
+      <height>26</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -92,6 +102,14 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Graph</class>
+   <extends>QWidget</extends>
+   <header location="global">graph.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
