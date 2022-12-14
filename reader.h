@@ -31,8 +31,8 @@ public:
     void currentSignal();
     void getSignals();
     void setSignal(QString signal);
-    void setMaximun(float max);
-    void setMinimum(float min);
+    void maximun();
+    void minimum();
 private:
     bool isOpenPort();
     void writeData(QByteArray & data );

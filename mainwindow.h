@@ -31,7 +31,7 @@ private:
     QWidgetInterface widgetreader;
     QVBoxLayout layout;
     QList<QPushButton*> buttons;
-    Graph _graph;
+    Graph * _graph;
 
 };
 #endif // MAINWINDOW_H

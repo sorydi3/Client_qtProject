@@ -20,30 +20,19 @@ void QWidgetInterface::readData()
 
     // Create a QByteArray to store the read data
 
-    // qDebug() << "data is available!!!!";
-     /**
-    while(port.bytesAvailable()){
-        QByteArray data;
-        // Read data from the serial port
-        qint64 read =  port.read((char*)&data,sizeof(data));
+    datoRecibido="";
 
-        QString str = QString::number(read);
-        qDebug() << str;
-    }
-    */
-
-     datoRecibido="";
-
-     QByteArray byteArray = port.readAll();
-     QString str = QString::fromUtf8(byteArray);
-     if(stringListButtons.empty()){
-         stringListButtons = str.split("\r\n");
-         for (int var = 0; var < stringListButtons.size(); ++var) {
+    QByteArray byteArray = port.readAll();
+    QString str = QString::fromUtf8(byteArray);
+    if(stringListButtons.empty() && !str.contains("VALUE")){
+        stringListButtons = str.split("\r\n");
+        stringListButtons.removeLast();
+        for (int var = 0; var < stringListButtons.size(); ++var) {
             qDebug() << stringListButtons[var];
-         }
-     }else{
+        }
+    }else{
         datoRecibido = str;
         emit enviaDatoRecibido(datoRecibido);
-     }
+    }
 
 }

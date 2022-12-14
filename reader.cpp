@@ -90,8 +90,22 @@ void Reader::stop()
     writeData(signal);
 }
 
+void Reader::maximun()
+{
+     QByteArray signal = AT_MAX.toLatin1();
+     writeData(signal);
+}
+
+
+void Reader::minimum()
+{
+     QByteArray signal = AT_MIN.toLatin1();
+     writeData(signal);
+}
+
 void Reader::currentSignal()
 {
      QByteArray signal = AT_CURR.toLatin1();
      writeData(signal);
 }
+

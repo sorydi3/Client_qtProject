@@ -7,6 +7,7 @@
 #include <QEvent>
 #include <QWheelEvent>
 #include "qwidgetinterface.h"
+#include <QWidget>
 
 class Graph : public QOpenGLWidget,protected QOpenGLFunctions_1_1
 
@@ -16,7 +17,7 @@ public:
     Graph(QWidget *parent=0);
     void addData(const float &data);
     void clearSignal();
-
+    void setParentWidgett(QWidget & widget);
 
     // QOpenGLWidget interface+
 private slots:
@@ -32,6 +33,7 @@ private:
     QColor signalColor,background;
     int zoom;
     QVector<float> signal;
+    QWidget *parent;
 
     // QWidget interface
 protected:
