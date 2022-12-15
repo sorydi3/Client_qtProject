@@ -33,5 +33,9 @@ private:
     QList<QPushButton*> buttons;
     Graph * _graph;
 
+
+    // QWidget interface
+protected:
+    void resizeEvent(QResizeEvent *event) override;
 };
 #endif // MAINWINDOW_H

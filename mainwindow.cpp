@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     response_label.setParent(ui->centralwidget);
     response_label.setGeometry(QRect(600,500,120,50));
-    _graph = new Graph(ui->mainWidget);
+    _graph = new Graph(ui->mainWidget,height(),width());
 
 }
 
@@ -90,6 +90,44 @@ void MainWindow::response(QString &strResponse)
 {
 
     response_label.setText(strResponse);
+
+}
+
+void MainWindow::resizeEvent(QResizeEvent *event)
+{
+    /*
+    QSize size = event->size();
+
+    int h = size.height();
+    int w = size.width();
+
+
+
+    qDebug() <<"max size h: "<<h <<"  max size width w:"<<w;
+
+    //_graph->resize(size);
+
+    QRect rect(w-100,100,80,40);
+
+    qDebug() << ui->mainWidget->size() << " <----widgett";
+
+    qDebug("new size of init button");
+    qDebug() << rect;
+
+    QRect rectw(w-100,100,80,40);
+
+    //ui->mainWidget-set
+
+
+    ui->verticalLayout->setGeometry(rect);
+
+    QRect rectw(w-100,100,80,40);
+
+    ui->verticalLayout->raise();
+
+
+    //ui->verticalLayout->s
+    */
 
 }
 

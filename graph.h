@@ -14,7 +14,7 @@ class Graph : public QOpenGLWidget,protected QOpenGLFunctions_1_1
 {
     Q_OBJECT
 public:
-    Graph(QWidget *parent=0);
+    Graph(QWidget *parent=0,int height=0,int width=0);
     void addData(const float &data);
     void clearSignal();
     void setParentWidgett(QWidget & widget);
@@ -39,6 +39,10 @@ private:
 protected:
     void wheelEvent(QWheelEvent *event) override;
 
+
+    // QWidget interface
+protected:
+    void resizeEvent(QResizeEvent *event) override;
 };
 
 #endif // GRAPH_H

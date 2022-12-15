@@ -1,8 +1,8 @@
 #include "graph.h"
 
-Graph::Graph(QWidget *parent) : QOpenGLWidget(parent)
+Graph::Graph(QWidget *parent,int height,int width) : QOpenGLWidget(parent)
 {
-    QWidget::setGeometry(QRect(110,40,600,500));
+    //QWidget::setGeometry(QRect(110,40,width-110,height));
     background = QColor("#e6f7ff");
     signalColor = QColor("#073ab0");
     zoom = 100.0;
@@ -103,6 +103,18 @@ void Graph::wheelEvent(QWheelEvent *event)
     }
 
     update();
+}
+
+void Graph::resizeEvent(QResizeEvent *event)
+{
+
+    qDebug("size even called!!");
+    QSize newSize = event->size();
+
+
+
+    setGeometry(QRect(110,40,newSize.width()-100,newSize.height()-100));
+
 }
 
 
